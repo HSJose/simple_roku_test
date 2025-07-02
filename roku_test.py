@@ -29,6 +29,7 @@ capabilities = {
     'appium:deviceName': 'roku',
     'headspin:app.id': app_id,
     'appium:udid': udid,
+    'headspin:capture': True,
 }
 
 # convert capabilities to AppiumOptions
