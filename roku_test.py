@@ -29,13 +29,13 @@ capabilities = {
     'appium:deviceName': 'roku',
     'headspin:app.id': app_id,
     'appium:udid': udid,
-    'headspin:capture': True,
+    'headspin:capture.video': True,
 }
 
 # convert capabilities to AppiumOptions
 appium_options = AppiumOptions().load_capabilities(capabilities)
 appium_options.set_capability('appium:newCommandTimeout', 300)
-appium_options.set_capability('headspin:controlLock', True)
+# appium_options.set_capability('headspin:controlLock', True)
 appium_options.set_capability('headspin:retryNewSessionFailure', False)
 
 def start_appium_session() -> object:
@@ -283,6 +283,8 @@ def main():
 
     finally:
         if driver:
+            print(f"Ending Appium session with session id: {driver.session_id}")
+            print(f"https://ui-dev.headspin.io/sessions/{driver.session_id}/waterfall")
             driver.quit()
 
 
